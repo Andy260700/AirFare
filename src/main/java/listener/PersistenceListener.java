@@ -1,5 +1,6 @@
 package listener;
 
+import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 import jakarta.servlet.ServletContextEvent;
@@ -14,6 +15,8 @@ public class PersistenceListener implements ServletContextListener {
         ServletContextListener.super.contextInitialized(sce);
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("default");
         sce.getServletContext().setAttribute("entity-manager-factory", entityManagerFactory);
+//        EntityManager em = entityManagerFactory.createEntityManager();
+//        sce.getServletContext().setAttribute("entity-manager", em);
         PersistenceUtil.setEmf(entityManagerFactory);
     }
 
@@ -21,7 +24,9 @@ public class PersistenceListener implements ServletContextListener {
     public void contextDestroyed(ServletContextEvent sce) {
         ServletContextListener.super.contextDestroyed(sce);
         PersistenceUtil.setEmf(null);
-        EntityManagerFactory emf = (EntityManagerFactory) sce.getServletContext().getAttribute("entity-manager-factory");
-        emf.close();
+//        EntityManager em = (EntityManager) sce.getServletContext().getAttribute("entity-manager");
+//        em.close();
+        EntityManagerFactory entityManagerFactory = (EntityManagerFactory) sce.getServletContext().getAttribute("entity-manager-factory");
+        entityManagerFactory.close();
     }
 }

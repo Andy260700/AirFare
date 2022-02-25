@@ -10,6 +10,8 @@ public class FlightId implements Serializable {
     private String id;
     private long leg;
 
+    public FlightId(){};
+
     public FlightId(String id, long leg){
         this.id = id;
         this.leg = leg;
