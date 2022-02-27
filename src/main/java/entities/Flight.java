@@ -9,9 +9,22 @@ import java.util.Date;
 @Table(name = "Flights")
 public class Flight implements Serializable {
 
-    @EmbeddedId
-    @Column(name="flight_id")
-    private FlightId flightId;
+//    @EmbeddedId
+//    @Column(name="flight_id")
+//    private FlightId flightId;
+    @Id
+    @Column(name = "id", nullable = false)
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long flightId;
+
+    @Column(name = "flight_number", nullable = false)
+    private String flightNumber;
+
+    @Column(name = "leg", nullable = false)
+    private Long leg;
+
+    @Column(name = "owner", nullable = false)
+    private String owner;
 
     @Column(name = "source", nullable = false)
     private String source;
@@ -28,8 +41,36 @@ public class Flight implements Serializable {
     @Column(name = "price", nullable = false)
     private double price;
 
-    public FlightId getFlightId() {
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinTable(name="flight_deals",
+            joinColumns = {@JoinColumn(name = "flight_id", referencedColumnName = "id")},
+            inverseJoinColumns = {@JoinColumn(name = "deal_id", referencedColumnName = "id")}
+    )
+    private Deal deal;
+
+    public Flight(){};
+
+    public Flight(String flightNumber,Long leg, String owner, String source, String destination, Date departureTime, Date arrivalTime, double price) {
+        this.flightNumber = flightNumber;
+        this.leg = leg;
+        this.owner = owner;
+        this.source = source;
+        this.destination = destination;
+        this.departureTime = departureTime;
+        this.arrivalTime = arrivalTime;
+        this.price = price;
+    }
+
+    public Long getFlightId() {
         return flightId;
+    }
+
+    public String getFlightNumber() {
+        return flightNumber;
+    }
+
+    public String getOwner() {
+        return owner;
     }
 
     public String getSource() {
@@ -52,8 +93,16 @@ public class Flight implements Serializable {
         return price;
     }
 
-    public void setFlightId(FlightId flightId) {
-        this.flightId = flightId;
+    public Long getLeg() {
+        return leg;
+    }
+
+    public void setFlightNumber(String flightNumber) {
+        this.flightNumber = flightNumber;
+    }
+
+    public void setOwner(String owner) {
+        this.owner = owner;
     }
 
     public void setSource(String source) {
@@ -76,10 +125,24 @@ public class Flight implements Serializable {
         this.price = price;
     }
 
+    public void setLeg(Long leg) {
+        this.leg = leg;
+    }
+
+    public Deal getDeal() {
+        return deal;
+    }
+
+    public void setDeal(Deal deal) {
+        this.deal = deal;
+    }
+
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder("Flight{");
-        sb.append("flightId=").append(flightId);
+        sb.append("flightNumber='").append(flightNumber).append('\'');
+        sb.append(", leg='").append(leg).append('\'');
+        sb.append(", owner='").append(owner).append('\'');
         sb.append(", source='").append(source).append('\'');
         sb.append(", destination='").append(destination).append('\'');
         sb.append(", departureTime=").append(departureTime);

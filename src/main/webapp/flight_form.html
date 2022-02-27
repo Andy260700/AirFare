@@ -1,0 +1,48 @@
+<html>
+<head>
+    <link rel="stylesheet" href="/resources/style.css">
+</head>
+
+<body>
+<h1 class="center2">Welcome to Air Fare</h1>
+
+<h2 style="text-align:center">Enter details of a flight</h2>
+
+<form action="http://localhost:9999/flights" method="post">
+    <div class="column">
+        <label for="flight_number">Flight number : </label>
+        <input type="text" id="flight_number" name="flight_number" required/>
+    </div>
+    <div class="column">
+        <label for="leg">Leg number : </label>
+        <input type="text" id="leg" name="leg" required/>
+    </div>
+    <div class="column">
+        <label for="flight_owner">Air vessel owned by : </label>
+        <input type="text" id="flight_owner" name="flight_owner" required/>
+    </div>
+    <div class="column">
+        <label for="source">Departure airport : </label>
+        <input type="text" id="source" name="source" required/>
+    </div>
+    <div class="column">
+        <label for="depart_time">Departure time : </label>
+        <input type="time" id="depart_time" name="depart_time" required/>
+    </div>
+    <div class="column">
+        <label for="destination">Destination airport : </label>
+        <input type="text" id="destination" name="destination" required/>
+    </div>
+    <div class="column">
+        <label for="arrival_time">Arrival time : </label>
+        <input type="time" id="arrival_time" name="arrival_time" required/>
+    </div>
+    <div class="column">
+        <label for="price">Fare : </label>
+        <input type="text" id="price" name="price" required/>
+    </div>
+    <input class="button" type="submit" value="Add flight">
+</form>
+
+</body>
+</html>

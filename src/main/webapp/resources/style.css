@@ -1,17 +1,96 @@
 body {
-    color: red;
-    font-family: sans-serif;
+    font-family: Fantasy, sans-serif;
+    display: flex;
+    flex-direction: column;
+    background-image: url(bg.jpg);
+    background-size: cover;
 }
 
 a:link, a:visited {
-  background-color: #f44336;
-  color: white;
-  padding: 14px 25px;
+  background-color: #FDDC95;
+  color: black;
+  padding: 20px 0;
+  font-size: 25px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
+  border-radius: 5px;
+  margin: 10px;
+  marginTop: 20px;
+  opacity: 0.6;
 }
 
 a:hover, a:active {
-  background-color: red;
+  background-color: #3FA0B8;
+  color: #FDDC95;
+  opacity: 0.8;
+}
+
+.center {
+   background-color: white;
+   padding: 35px 0;
+   paddingLeft: 70px 0;
+   paddingRight: 70px 0;
+   text-align: center;
+   border-radius: 5px;
+   opacity: 0.4
+ }
+
+ .center2 {
+    background-color: white;
+       padding: 20px 0;
+       paddingLeft: 70px 0;
+       paddingRight: 70px 0;
+       text-align: center;
+       border-radius: 5px;
+       opacity: 0.8
+  }
+
+.admin {
+  marginTop : 20px 0;
+  padding: 40px 0;
+  paddingLeft: 70px 0;
+  paddingRight: 70px 0;
+  border: 3px solid green;
+  text-align: center;
+  border-radius: 5px;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+}
+
+.column{
+    display: flex;
+    flex-direction: column;
+
+}
+
+form {
+    background-color: white;
+    opacity:0.8;
+    align-self: center;
+    font-size: 16px;
+    padding: 20px;
+    border-radius: 20px;
+    width : 40%;
+}
+
+label {
+    padding: 1px;
+    margin : 1px;
+}
+
+input {
+    padding: 4px;
+    margin : 2px;
+    text-align: center;
+}
+
+.button{
+    background-color: #FDDC95;
+    color: black;
+    width: 100%;
+    padding:6px;
 }
