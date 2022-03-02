@@ -4,11 +4,16 @@
 </head>
 
 <body>
-<h1 class="center2">Welcome to Air Fare</h1>
+<div class="row1">
+<a href="/" > Home </a>
+<h1 class="center2">
+    Welcome to Air Fare</h1>
+    <a href="/search.jsp" >   Find   </a>
+</div>
 
 <h2 style="text-align:center">Enter details of a flight</h2>
 
-<form action="http://localhost:9999/flights" method="post">
+<form action="/flights" method="post">
     <div class="column">
         <label for="flight_number">Flight number : </label>
         <input type="text" id="flight_number" name="flight_number" required/>

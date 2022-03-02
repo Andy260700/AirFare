@@ -4,25 +4,30 @@
 </head>
 
 <body>
-<h1 class="center2">Welcome to Air Fare</h1>
+<div class="row1">
+    <a href="/" > Home </a>
+    <h1 class="center2">
+        Welcome to Air Fare</h1>
+    <a href="/search.jsp" >   Find   </a>
+</div>
 
 <h2 style="text-align:center">Enter details of a deal</h2>
-<form action="http://localhost:9999/deals" method="post">
+<form action="/deals" method="post">
     <div class="column">
         <label for="flight_number">Flight number : </label>
-        <input type="text" id="flight_number" required/>
+        <input type="text" id="flight_number" name="flight_number" required/>
     </div>
     <div class="column">
         <label for="leg">Leg number : </label>
-        <input type="text" id="leg" required/>
+        <input type="text" id="leg" name="leg" required/>
     </div>
     <div class="column">
         <label for="price">Discounted Fare : </label>
-        <input type="text" id="price" required/>
+        <input type="text" id="price" name="price" required/>
     </div>
     <div class="column">
         <label for="deal_end">Deal ends : </label>
-        <input type="time" id="deal_end" required/>
+        <input type="time" id="deal_end" name="deal_end" required/>
     </div>
     <input class="button" type="submit" value="Add deal">
 </form>
